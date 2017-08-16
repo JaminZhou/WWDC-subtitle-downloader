@@ -1,2 +1,6 @@
 # WWDC-subtitle-downloader
-WWDC 2017 subtitle downloader script written in Swift
+
+modify by [wwdc-downloader](https://github.com/ohoachuck/wwdc-downloader)
+
+### Usage
+````./WWDCSubtitle.swift```` or ````swift WWDCSubtitle.swift````

@@ -138,7 +138,7 @@ class wwdcController {
         let semaphore = DispatchSemaphore.init(value: 0)
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
             if (error == nil) {
-                result = String.init(data: data!, encoding: .ascii)!
+                result = String.init(data: data!, encoding: .utf8)!
             } else {
                 print("URL Session Task Failed: %@", error!.localizedDescription);
             }
@@ -178,11 +178,7 @@ class wwdcController {
                 
                 let fileSequenceText = wwdcController.getStringContent(fromURL: fileSequenceURL)
                 let subtitle = wwdcController.getSubtitle(fromText: fileSequenceText, baseURL: fileSequenceURL)
-                print(subtitle)
                 try? subtitle.write(toFile: path, atomically: true, encoding: .utf8)
-                
-                //let subtitleData = subtitle.data(using: .utf8)
-                //FileManager.default.createFile(atPath: path, contents: subtitleData, attributes: nil)
             }
         } else {
             print("Subtitle : Subtitle is not yet available !!!")
